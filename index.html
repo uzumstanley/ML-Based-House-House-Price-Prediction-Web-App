@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <style>
+        /* Apply background color to the entire page */
+        body {
+            background-color: #f0f8ff; /* Light blue background color */
+            font-family: Arial, sans-serif;
+            color: #333; /* Dark grey text color */
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Center the form and the prediction text */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        /* Style the form elements */
+        form {
+            background-color: #ffffff; /* White background for the form */
+            border: 1px solid #ddd; /* Light grey border */
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        /* Style the prediction text */
+        .prediction {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>House Price Prediction</h1>
+        
+        <form action="/predict" method="post">
+            <label for="bedrooms">Number of Bedrooms:</label>
+            <input type="text" id="bedrooms" name="bedrooms" required>
+            
+            <label for="sqft_living">Square Footage of Living Space:</label>
+            <input type="text" id="sqft_living" name="sqft_living" required>
+            
+            <label for="condition">Condition (e.g., 1-5):</label>
+            <input type="text" id="condition" name="condition" required>
+            
+            <label for="yr_built">Year Built:</label>
+            <input type="text" id="yr_built" name="yr_built" required>
+            
+            <label for="yr_renovated">Year Renovated (Enter 0 if not renovated):</label>
+            <input type="text" id="yr_renovated" name="yr_renovated" required>
+            
+            <input type="submit" value="Predict">
+        </form>
+        
+        {% if prediction_text %}
+            <div class="prediction">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
