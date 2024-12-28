@@ -49,7 +49,7 @@ print('Coefficient of determination: %.2f'
 
 
 # Save the trained model to a file using Pickle
-with open('Multiplelinear_regression_model.pkl', 'wb') as file:  # 'wb' means write in binary mode
+with open('model.pkl', 'wb') as file:  # 'wb' means write in binary mode
     pickle.dump(regr, file)
 
 
