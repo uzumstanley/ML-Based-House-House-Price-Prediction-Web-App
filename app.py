@@ -3,7 +3,8 @@ import pickle
 import numpy as np
 
 # Load your saved model
-with open('linear_regression_model.pkl', 'rb') as f:
+# linear_regression_model
+with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 # Initialize the Flask app and specify the templates folder
